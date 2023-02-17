@@ -1,0 +1,23 @@
+<h1><%= @blog.title %></h1>
+
+<% if @blog.user %>
+  <div><%= link_to "By: #{@blog.user.username}", @blog.user  %></div>
+
+<% end %> 
+
+<p> <%= @blog.content %> </p>
+<div>
+  <%= image_tag @blog.image_path, style: "border: 1px solid black" %>
+</div>
+<div>
+  <% @blog.categories.each do |category| %>
+    <b style="margin-right: 6px"><%= category.name %></b>
+  <% end %>
+</div>
+
+
+
+<% if current_user == @blog.user %>
+  <%= link_to "Edit", edit_blog_path(@blog) %>
+  <%= button_to "Delete", @blog, method: :delete %>
+<% end %>

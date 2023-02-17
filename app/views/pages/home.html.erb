@@ -1,0 +1,21 @@
+<h1 class="text-center">Discovery a New Adventure of Blogging</h1>
+<p class="text-center">Click below to start reading, or add your own!</p>
+
+<div class="container">
+  <div class="row">
+    <% Blog.limit(6).each do |blog| %>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="card" style="width: 100%; margin-bottom: 1rem">
+          <%= image_tag blog.image_path, class: "card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= blog.title %></h5>
+            <p class="card-text"><%= blog.content.slice(0, 30) %></p>
+            <%= link_to "Continue Reading...", blog, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

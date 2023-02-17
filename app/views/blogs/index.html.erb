@@ -1,0 +1,12 @@
+<h1>Blogs</h1>
+
+<% @blogs.each do |blog| %>
+  <h2><%= blog.title %></h2>
+  <p>Content: <%= blog.content %></p>
+  
+  <div>
+    <%= link_to blog_path(blog) do %>
+      <%= image_tag blog.image_path, style: "border: 1px solid black" %>
+    <% end %>
+  </div>
+<% end %>
